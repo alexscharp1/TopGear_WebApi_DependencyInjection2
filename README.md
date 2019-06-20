@@ -12,32 +12,30 @@ Features: The web API has 3 primary features.
 
 After downloading this project, some adjustments will need to be made before it will run locally.
 
-STEP 1: Create a database with 2 tables, Posts and Users.
+*STEP 1: Create a database with 2 tables, Posts and Users.*
 1. Download the SQL scripts file named "SQLScripts_SetupWebApiDB.sql".
 2. Open SQL Server.
 3. Execute the scripts file.
 
-STEP 2: Configure the connection string to the database.
+*STEP 2: Configure the connection string to the database.*
 1. Open the file WebApi/Web.config
 2. Find the connection string in line 13. Replace the value of "data source" with your SQL Server's name.
 
-STEP 3: The email service is configured to run on localhost's SMTP email server. Rather than sending emails across the web, it instead saves them locally.
+*STEP 3: The email service uses localhost's SMTP email server to save emails locally, rather than send across the web.*
 By default, these emails will be saved to "C:/Mails".
-1. Option 1: Make sure this file location exists, or create it if it doesn't.
-2. Option 2: Alternatively, you can change the location the files are saved. Open Web.Config, location the code section below, and change the value of "HERE":
+1. If this behavior is acceptable, make sure this file location exists.
+2. If you would rather save the files elsewhere, open Web.Config, locate the code section below, and change the value of "HERE":
 ```
 <configuration>
+...
     <system.net>
         <mailSettings>
             <smtp deliveryMethod=SpecifiedPickupDirectory>
-                <specifiedPickupDirectory pickupDirectoryLocation="
-                ```
-                **HERE**
-                ```
-                " />
+                <specifiedPickupDirectory pickupDirectoryLocation="HERE" />
             </smtp>
         </mailSettings>
     </system.net>
+...
 </configuration>
 ```
 
