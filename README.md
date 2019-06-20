@@ -37,7 +37,7 @@ By default, these emails will be saved to "C:/Mails".
 
 ### Postman
 
-Postman can be used to send HTTP requests to the Web API. In the "Postman.json" file, you can find an exported collection of all requests discussed later in this introduction. You can easily use them by importing the collection into Postman.
+Postman can be used to send HTTP requests to the Web API. In the json file "Postman", you can find an exported collection of all requests discussed later in this introduction. You can easily use them by importing the collection into Postman.
 
 You will need to adjust the localhost port number to your Web API. Additionally, you'll need to set Authorization to Bearer Token and provide the token to access any requests for blog posts.
 
