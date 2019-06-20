@@ -3,11 +3,6 @@ Web API project to demonstrate Dependency Injection and other Web API features.
 
 ***IMPORTANT!*** Refer to "Setup" section below for important setup instructions.
 
-The web API has 3 primary features.
-1. Functions as a very simple blog where clients can create, view, update, and delete posts.
-2. Requries authentication to perform any requests with blog posts.
-3. Includes an email service which simulates sending emails to users.
-
 ### Setup
 
 After downloading this project, some adjustments will need to be made before it will run locally.
@@ -47,6 +42,11 @@ You will need to adjust the localhost port number to your Web API. Additionally,
 
 ## Overview of API's main features
 
+The web API has 3 primary features.
+1. Functions as a very simple blog where clients can create, view, update, and delete posts.
+2. Requries authentication to perform any requests with blog posts.
+3. Includes an email service which simulates sending emails to users.
+
 ### Data storage and access
 
 All Posts are stored in a local SQL Server database. Some User data is also stored here, though account information is managed by OAuth.
@@ -81,8 +81,12 @@ The following HTTP requests will be useful:
 As mentioned above, the email service uses localhost's SMTP email server to save emails locally, rather than send across the web. Refer to Setup step 3 for configuration options.
 
 There are three ways the API sends emails.
-
-* After a user successfully registers, an email is created to welcome them.
-* After a user successfully requests a token, an email verifies their login.
 * You can explicitly compose and send an email: POST http://localhost:{port}/email/send
 --* Body must contain To (email address), Subject, and Message
+* After a user successfully registers, an email is created to welcome them.
+* After a user successfully requests a token, an email verifies their login.
+
+Unity's IoC is used to inject the email service wherever it is needed. Specifically, it is injected in the following places:
+* EmailController for the first option above.
+* AccountController for the second option above.
+* ApplicationOAuthProvider and Startup for the third option above.
