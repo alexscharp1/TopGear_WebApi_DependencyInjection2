@@ -25,15 +25,21 @@ STEP 3: The email service is configured to run on localhost's SMTP email server.
 By default, these emails will be saved to "C:/Mails".
 1. Option 1: Make sure this file location exists, or create it if it doesn't.
 2. Option 2: Alternatively, you can change the location the files are saved. Open Web.Config, location the code section below, and change the value of "HERE":
+```
 <configuration>
     <system.net>
         <mailSettings>
             <smtp deliveryMethod=SpecifiedPickupDirectory>
-                <specifiedPickupDirectory pickupDirectoryLocation="**HERE**" />
+                <specifiedPickupDirectory pickupDirectoryLocation="
+                ```
+                **HERE**
+                ```
+                " />
             </smtp>
         </mailSettings>
     </system.net>
 </configuration>
+```
 
 ### Postman
 
