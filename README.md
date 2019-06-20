@@ -1,6 +1,8 @@
 # TopGear_WebApi_DependencyInjection2
 Web API project to demonstrate Dependency Injection and other Web API features.
 
+**Note:** MyWebPage is an incomplete MVC project. At one point it served as a front-end client to the Web API. Later it was dropped in favor of simply using Postman's HTTP requests. I decided to include it here, as I might finish it later.
+
 ## Setup
 
 ***Important!*** After downloading this project, follow these steps to perform necessary configurations.
