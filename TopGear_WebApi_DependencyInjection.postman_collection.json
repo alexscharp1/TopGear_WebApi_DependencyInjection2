@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "9f61ccbb-a7ee-4c01-aa46-33405e8275bd",
+		"name": "TopGear_WebApi_DependencyInjection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Email\": \"TestUser@demo.com\",\n\t\"FirstName\": \"Test\",\n\t\"LastName\": \"User\",\n\t\"Password\": \"Password@123\",\n\t\"ConfirmPassword\": \"Password@123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:54637/api/account/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54637",
+					"path": [
+						"api",
+						"account",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Auth Token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "TestUser@demo.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Password@123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:54637/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54637",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XiFH6A4OmfL2Kl9zdddArRT0wXKt0MXIEIZldUKffBc_TTpWfvJ36abglVCWR8LMP9kRqMzzFYkeXl8_0WWpHUjZ8Lo8QoPBoGFIOiH-cgflIi9IgmvXZkY_DEh4GcUxhBDeWSSeGw_hRtk-tlPfIq4F4mQPYFL7R7ZRb2mMBa9F_JxyvryMWgj590Z5AwnLV7XDZ_7CJV3bLw8EZ18LcG3qmP9iv-RAzSHqRl6TBJnDxcVBWPkkp8KNl7aRR-dQkBNjjD8KYXEE0iZaHaQF7hPlz5cjjbg0Z_M6nPB9S7RtAAkLzs4PjEeBsMsVIJ4ntIvoMhHu_dhZxCLkLKJBqagBiUZ_9YEHNSF7QKSur_O-jXnR41hT2lrzYpRAkGHVIpT5zESrPBPr_ASEZ13tVA0RfTzZkCGBl3aRx-FFNTDkS3HYbldZVZtJCvhesR5WR0N2VjDHwkTuA8Ng-2iWklPvRfbbtsKW2IsjeDZjwS-MZlWqKHLJhMFTlBOR9kdp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:54637/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54637",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Post By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "IX0Jbb1EzBiq_9ZprbnHnPb33mRbqOR7simjbg1cqaTwu3Y03hKjpUf0BLSy6UbBPt4MLhclEqNI2LbR2tYqwf9_KVmrlZTtAxhA-CicQ54PDQS97bHB5GJgQDo4_mOQlteJVHW_zgvqtvXIY0X66NQ8ZFHyC60-b656gBXbBhwvb8qLJTWqU5m8m7A7JxPWSb0GhChyi3RZWfXHIwtqQj51CtSg_oCD87dFLap6uLO9PLC_93qsKcwl0o3qjlH16pSEi6BJqK2pcKiArtlb_i5Hmxov03K_O3PL4ybdcrgut47qP8Yp6Uck1C--rxSf_ifF_gEnIxcZ6IYVIpxF95IBK05P4svsegk6xfV8Teh9GEVqtdAUVDjV09NuEJAaL9Q39K8jee6fooaD-6O44lAfHyLCQydkUYgVDq5FvmyQPyVtDimbX1rzH6_qVrkU6c-Ew8wT_mVXkla0bqjTvMMqGF4tl9lIDvSuXhDN0aF_ZmLwmKew5_nfKdeo5Tfg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:54637/api/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54637",
+					"path": [
+						"api",
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XiFH6A4OmfL2Kl9zdddArRT0wXKt0MXIEIZldUKffBc_TTpWfvJ36abglVCWR8LMP9kRqMzzFYkeXl8_0WWpHUjZ8Lo8QoPBoGFIOiH-cgflIi9IgmvXZkY_DEh4GcUxhBDeWSSeGw_hRtk-tlPfIq4F4mQPYFL7R7ZRb2mMBa9F_JxyvryMWgj590Z5AwnLV7XDZ_7CJV3bLw8EZ18LcG3qmP9iv-RAzSHqRl6TBJnDxcVBWPkkp8KNl7aRR-dQkBNjjD8KYXEE0iZaHaQF7hPlz5cjjbg0Z_M6nPB9S7RtAAkLzs4PjEeBsMsVIJ4ntIvoMhHu_dhZxCLkLKJBqagBiUZ_9YEHNSF7QKSur_O-jXnR41hT2lrzYpRAkGHVIpT5zESrPBPr_ASEZ13tVA0RfTzZkCGBl3aRx-FFNTDkS3HYbldZVZtJCvhesR5WR0N2VjDHwkTuA8Ng-2iWklPvRfbbtsKW2IsjeDZjwS-MZlWqKHLJhMFTlBOR9kdp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"UserId\": 1,\n\t\"PostName\": \"Hello, World!\",\n\t\"PostBody\": \"This is my first post.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:54637/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54637",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XiFH6A4OmfL2Kl9zdddArRT0wXKt0MXIEIZldUKffBc_TTpWfvJ36abglVCWR8LMP9kRqMzzFYkeXl8_0WWpHUjZ8Lo8QoPBoGFIOiH-cgflIi9IgmvXZkY_DEh4GcUxhBDeWSSeGw_hRtk-tlPfIq4F4mQPYFL7R7ZRb2mMBa9F_JxyvryMWgj590Z5AwnLV7XDZ_7CJV3bLw8EZ18LcG3qmP9iv-RAzSHqRl6TBJnDxcVBWPkkp8KNl7aRR-dQkBNjjD8KYXEE0iZaHaQF7hPlz5cjjbg0Z_M6nPB9S7RtAAkLzs4PjEeBsMsVIJ4ntIvoMhHu_dhZxCLkLKJBqagBiUZ_9YEHNSF7QKSur_O-jXnR41hT2lrzYpRAkGHVIpT5zESrPBPr_ASEZ13tVA0RfTzZkCGBl3aRx-FFNTDkS3HYbldZVZtJCvhesR5WR0N2VjDHwkTuA8Ng-2iWklPvRfbbtsKW2IsjeDZjwS-MZlWqKHLJhMFTlBOR9kdp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Id\": 1,\n    \"PostName\": \"Hello, World (again)!\",\n    \"PostBody\": \"I edited my first post.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:54637/api/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54637",
+					"path": [
+						"api",
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "XiFH6A4OmfL2Kl9zdddArRT0wXKt0MXIEIZldUKffBc_TTpWfvJ36abglVCWR8LMP9kRqMzzFYkeXl8_0WWpHUjZ8Lo8QoPBoGFIOiH-cgflIi9IgmvXZkY_DEh4GcUxhBDeWSSeGw_hRtk-tlPfIq4F4mQPYFL7R7ZRb2mMBa9F_JxyvryMWgj590Z5AwnLV7XDZ_7CJV3bLw8EZ18LcG3qmP9iv-RAzSHqRl6TBJnDxcVBWPkkp8KNl7aRR-dQkBNjjD8KYXEE0iZaHaQF7hPlz5cjjbg0Z_M6nPB9S7RtAAkLzs4PjEeBsMsVIJ4ntIvoMhHu_dhZxCLkLKJBqagBiUZ_9YEHNSF7QKSur_O-jXnR41hT2lrzYpRAkGHVIpT5zESrPBPr_ASEZ13tVA0RfTzZkCGBl3aRx-FFNTDkS3HYbldZVZtJCvhesR5WR0N2VjDHwkTuA8Ng-2iWklPvRfbbtsKW2IsjeDZjwS-MZlWqKHLJhMFTlBOR9kdp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:54637/api/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54637",
+					"path": [
+						"api",
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Email",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"To\": \"TestUser@demo.com\",\n\t\"Subject\": \"Sample Email\",\n\t\"Message\": \"Testing Testing 123. This email was sent from Postman.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:54637/api/email/send",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "54637",
+					"path": [
+						"api",
+						"email",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
