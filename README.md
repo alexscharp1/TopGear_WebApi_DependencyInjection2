@@ -55,38 +55,38 @@ The data models of Posts and Users are maintained by an ADO.NET Entity Data Mode
 All post operations require authentication. (Refer to Authentication section below.)
 
 Clients can send the following HTTP requests to perform CRUD operations on posts:
-1. Get all posts: GET http://localhost:{port}/api/posts
-2. Get post by id: GET http://localhost:{port}/api/posts/{id}
-3. Create a new post: POST http://localhost:{port}/api/posts
-  * Body must contain UserId, PostName, and PostBody.
-4. Update a post: POST http://localhost:{port}/api/posts/{id}
-  * Body must contain Id equal to {id}, and may contain PostName and/or PostBody. Other fields will not be updated.
-5. Delete a post: DELETE http://localhost:{port}/api/posts/{id}
+* Get all posts: GET http://localhost:{port}/api/posts
+* Get post by id: GET http://localhost:{port}/api/posts/{id}
+* Create a new post: POST http://localhost:{port}/api/posts
+    * Body must contain UserId, PostName, and PostBody.
+* Update a post: POST http://localhost:{port}/api/posts/{id}
+    * Body must contain Id equal to {id}, and may contain PostName and/or PostBody. Other fields will not be updated.
+* Delete a post: DELETE http://localhost:{port}/api/posts/{id}
 
 ### Authentication
 
 Authentication is implemented with OAuth2's token authentication. Before a client can access blog posts, they must register an account, request an authentication token, and provide that token in each HTTP request.
 
 The following HTTP requests will be useful:
-1. Register an account: POST http://localhost:{port}/api/account/register
-  * Body must contain Email, FirstName, LastName, Password, and ConfirmPassword.
-  * Upon successful registration, the API will store the user's email and name in the local database, and will send a welcome email via the email service.
-2. Request an authentication token: GET http://localhost:{port}/token
-  * Content-Type header must be application/x-www-form-urlencoded.
-  * Body must contain grant_type = password, username, and password.
-  * Upon a successful token request, the API will send a verification email via the email service.
+* Register an account: POST http://localhost:{port}/api/account/register
+    * Body must contain Email, FirstName, LastName, Password, and ConfirmPassword.
+    * Upon successful registration, the API will store the user's email and name in the local database, and will send a welcome email via the email service.
+* Request an authentication token: GET http://localhost:{port}/token
+    * Content-Type header must be application/x-www-form-urlencoded.
+    * Body must contain grant_type = password, username, and password.
+    * Upon a successful token request, the API will send a verification email via the email service.
 
 ### Email Service
 
 As mentioned above, the email service uses localhost's SMTP email server to save emails locally, rather than send across the web. Refer to Setup step 3 for configuration options.
 
 There are three ways the API sends emails.
-1. You can explicitly compose and send an email: POST http://localhost:{port}/email/send
-  * Body must contain To (email address), Subject, and Message
-2. After a user successfully registers, an email is created to welcome them.
-3. After a user successfully requests a token, an email verifies their login.
+* You can explicitly compose and send an email: POST http://localhost:{port}/email/send
+    * Body must contain To (email address), Subject, and Message
+* After a user successfully registers, an email is created to welcome them.
+* After a user successfully requests a token, an email verifies their login.
 
 ***Dependency Injection*** Inversion of Control is achieved with Unity by injecting the email service wherever it is needed. Specifically, it is injected in the following places:
-1. EmailController for the first option above.
-2. AccountController for the second option above.
-3. ApplicationOAuthProvider and Startup for the third option above.
+* EmailController for the first option above.
+* AccountController for the second option above.
+* ApplicationOAuthProvider and Startup for the third option above.
