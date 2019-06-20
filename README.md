@@ -86,7 +86,7 @@ There are three ways the API sends emails.
 * After a user successfully registers, an email is created to welcome them.
 * After a user successfully requests a token, an email verifies their login.
 
-***Dependency Injection*** Inversion of Control is achieved with Unity by injecting the email service wherever it is needed. Specifically, it is injected in the following places:
+***Dependency Injection:*** Inversion of Control is achieved with Unity by injecting the email service wherever it is needed. Specifically, it is injected in the following places:
 * EmailController for the first option above.
 * AccountController for the second option above.
 * ApplicationOAuthProvider and Startup for the third option above.
