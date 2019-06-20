@@ -1,11 +1,9 @@
 # TopGear_WebApi_DependencyInjection2
 Web API project to demonstrate Dependency Injection and other Web API features.
 
-***IMPORTANT!*** Refer to "Setup" section below for important setup instructions.
+## Setup
 
-### Setup
-
-After downloading this project, some adjustments will need to be made before it will run locally.
+***Important!*** After downloading this project, follow these steps to perform necessary configurations.
 
 ***STEP 1: Create a database with 2 tables, Posts and Users.***
 1. Download the SQL scripts file named "SQLScripts_SetupWebApiDB.sql".
@@ -35,12 +33,14 @@ By default, these emails will be saved to "C:/Mails".
 </configuration>
 ```
 
+## Using the Web API
+
 ### Postman
 
 Postman can be used to send HTTP requests to the Web API. The Postman folder contains sample requests for all requests discussed later in this introduction. 
 You will need to adjust the localhost port number to your Web API. Additionally, you'll need to set Authorization to Bearer Token and provide the token to access any requests for blog posts.
 
-## Overview of API's main features
+## Overview of the Web API's main features
 
 The web API has 3 primary features.
 1. Functions as a very simple blog where clients can create, view, update, and delete posts.
